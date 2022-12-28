@@ -1,0 +1,29 @@
+.pulls {
+    margin: 10px;
+}
+
+.pull {
+    margin: 3px;
+    padding: 8px;
+    background: rgba(78, 78, 78, 0.498);
+    display: flex;
+    align-items: center;
+}
+
+.scoreboard {
+    margin: 13px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.135);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.scoreItem {
+    margin: 5px;
+    width: 18rem;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    background-color: rgba(114, 114, 114, 0.404);
+}
