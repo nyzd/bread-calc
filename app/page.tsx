@@ -1,10 +1,10 @@
+import Form from "./form";
+import styles from "./page.module.css";
+
 export default async function Page() {
 	return (
-		<div>
-			<form action="/repo/NatiqQuran/nq-api">
-				<input type="text" placeholder="Repository URL" />
-				<input type="submit" value="go" />
-			</form>
+		<div className={styles.page}>
+			<Form />
 		</div>
 	);
 }

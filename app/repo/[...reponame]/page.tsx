@@ -9,11 +9,22 @@ interface PageProps {
 }
 
 async function get_repo_pulls(repopath: string[]) {
-	const pathAsString = repopath.join("/");
+	const pathAsString = `${repopath[0]}/${repopath[1]}`;
 
 	const response = await call(`/repos/${pathAsString}/pulls?state=closed`);
+	const json: any[] = await response.json();
 
-	return response.json();
+	if (repopath[2]) {
+		const pulls = json.filter((value) => {
+			const created_at = value.created_at.split("-");
+			const path_date = repopath[2].split("-");
+
+			return created_at[0] === path_date[0] && created_at[1] === path_date[1];
+		});
+
+		return pulls;
+	}
+	return json;
 }
 
 export default async function Reponame({ params: { reponame } }: PageProps) {
@@ -42,7 +53,6 @@ export default async function Reponame({ params: { reponame } }: PageProps) {
 
 	return (
 		<div>
-			{/* <h1 style={{ textAlign: "center" }}>Pull request score board </h1> */}
 			<div className={styles.scoreboard}>
 				{scoreArray.map((value) => (
 					<div className={styles.scoreItem}>

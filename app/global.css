@@ -8,3 +8,13 @@
 body {
     background: #0a0c10;
 }
+
+input {
+    background: rgba(74, 74, 74, 0.306);
+    border: none;
+    padding: 10px;
+}
+
+input:focus {
+    outline: none;
+}
