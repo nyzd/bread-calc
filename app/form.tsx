@@ -31,7 +31,9 @@ export default function Form() {
 				onChange={handleTextInputChange}
 			/>
 			<input type="month" name="x" id="" onChange={handleMonthInputChange} />
-			<Button>Go</Button>
+			<Button>
+				<p>Go</p>
+			</Button>
 		</form>
 	);
 }
