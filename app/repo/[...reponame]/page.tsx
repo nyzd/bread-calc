@@ -102,8 +102,25 @@ export default async function Reponame({ params: { reponame } }: PageProps) {
 	return (
 		<div>
 			<div className={styles.scoreboard}>
-				{scoreArray.map((value) => (
-					<div className={styles.scoreItem}>
+				{scoreArray.map((value, index) => (
+					<div
+						style={
+							index + 1 === 1
+								? {
+										background: "#c5a600",
+								  }
+								: index + 1 === 2
+								? {
+										background: "#a1a1a1",
+								  }
+								: index + 1 === 3
+								? {
+										background: "#995e23",
+								  }
+								: {}
+						}
+						className={styles.scoreItem}
+					>
 						<Image
 							alt="Avatar"
 							src={value.value.avatar}
@@ -128,7 +145,7 @@ export default async function Reponame({ params: { reponame } }: PageProps) {
 			<div className={styles.pulls}>
 				{pulls.map((pull: any) => {
 					return (
-						<div className={styles.pull}>
+						<div className={styles.pull} key={pull.id}>
 							<Image
 								alt="Avatar"
 								src={pull.user.avatar_url}
