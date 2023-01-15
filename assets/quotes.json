@@ -1,0 +1,40 @@
+{
+    "quotes": [
+        {
+            "author": "Socrates",
+            "content": "The unexamined life is not worth living"
+        },
+        {
+            "author": "Friedrich Nietzsche",
+            "content": "God is dead! He remains dead! And we have killed him."
+        },
+        {
+            "author": "Voltaire",
+            "content": "If God did not exist, it would be necessary to invent Him"
+        },
+        {
+            "author": "Ludwig Wittgenstein",
+            "content": "Philosophy is a battle against the bewitchment of our intelligence by means of language"
+        },
+        {
+            "author": "G. W. F. Hegel",
+            "content": "Only one man ever understood me, and he didn’t understand me"
+        },
+        {
+            "author": "Hazrat Ali",
+            "content": "There will come a time where nothing will be hidden except truth, and nothing will be revealed except falsehood"
+        },
+        {
+            "author": "Plato",
+            "content": "You can discover more about a person in an hour of play than in a year of conversation"
+        },
+        {
+            "author": "Jean-Jacques Rousseau",
+            "content": "Man is born free, but is everywhere in chains"
+        },
+        {
+            "author": "Jean-Paul Sartre",
+            "content": "Everything that exists is born for no reason, carries on living through weakness, and dies by accident"
+        }
+    ]
+}

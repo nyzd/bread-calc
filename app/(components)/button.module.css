@@ -2,10 +2,13 @@
     background: rgba(160, 160, 160, 0.32);
     padding: 10px;
     cursor: pointer;
-    border-radius: 5px;
     border: none;
 }
 
 .button:active {
     background: rgb(52 52 52 / 32%);
+}
+
+.button:disabled {
+    cursor: default;
 }
