@@ -1,3 +1,6 @@
+"use client";
+
+import { useMemo } from "react";
 import quotesData from "../assets/quotes.json";
 
 interface Quote {
@@ -12,7 +15,10 @@ function selectRandomQuote(quotes: Quote[]): Quote {
 }
 
 export default function RandomQuoute() {
-	const quote = selectRandomQuote(quotesData.quotes);
+	const quote = useMemo(() => {
+		return selectRandomQuote(quotesData.quotes);
+	}, []);
+
 	return (
 		<div style={{ background: "#8b8b8b17", padding: "20px" }}>
 			<h3>“{quote.content}”</h3>- <p>{quote.author}</p>
