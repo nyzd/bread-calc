@@ -19,7 +19,6 @@
     flex-wrap: wrap;
 }
 
-
 .scoreItemLoading{
     display: inline-block;
     margin: 5px;
@@ -56,4 +55,35 @@
     width: 30px;
     font-size: 20px;
     border-left: 1px solid #333333;
+}
+
+.orgDetail {
+    border-bottom: 1px solid #333333;
+    margin: 13px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.orgDetail * {
+    margin: 3px;
+}
+
+.orgInfo {
+    margin-left: 10px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 3px;
+    display: flex;
+}
+
+.orgInfo div {
+    display: flex;
+    border-right: 1px solid #333333;
+    padding-right: 6px;
+}
+.orgInfo div:last-child{
+    border: none;
+    padding-right: 0;
 }
