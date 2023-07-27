@@ -30,9 +30,11 @@
     padding: 3px;
     border: 1px solid #333333;
 }
+
 .scoreItem img {
     border-radius: 100%;
 }
+
 .scoreItemValue{
     text-align: center;
     color: green;

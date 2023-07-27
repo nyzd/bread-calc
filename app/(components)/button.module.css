@@ -5,7 +5,7 @@
     cursor: pointer;
     border: 1px solid #333333;
     border-radius: 6px;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.2s;
     font-size: 14px;
 }
 
@@ -16,4 +16,8 @@
 .button:disabled {
     opacity: 0.5;
     cursor: default;
+}
+
+.button:hover {
+    background-color: rgb(255, 255, 255, 0.04);
 }
