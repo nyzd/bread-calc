@@ -20,7 +20,8 @@ export default function Form() {
     };
 
     const handleTextInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (disabled) setDisabled(false);
+        if (e.target.value === "") setDisabled(true)
+        else if (disabled) setDisabled(false);
         setPath(e.target.value);
     }
 
@@ -31,13 +32,13 @@ export default function Form() {
         <form onSubmit={handleFormSubmit}>
             <input
                 type="text"
-                placeholder="Repository URL"
+                placeholder="Repo/Org URL"
                 onChange={handleTextInputChange}
             />
-            <input type="month" name="x" id="" onChange={handleMonthInputChange} />
+            <input placeholder="Date Y/M" type="month" name="x" id="" onChange={handleMonthInputChange} />
 
             <Button disabled={disabled}>
-                <h3>Calculate</h3>
+                <h4>Calculate</h4>
             </Button>
         </form>
     );

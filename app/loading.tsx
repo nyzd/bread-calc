@@ -1,3 +1,3 @@
 export default function Loading() {
-	return <h1 style={{ textAlign: "center" }}>Loading...</h1>;
+	return <p style={{ textAlign: "center" }}>Loading...</p>;
 }
