@@ -31,14 +31,15 @@ export default function Form() {
     return (
         <form onSubmit={handleFormSubmit}>
             <input
+                autoFocus
                 type="text"
                 placeholder="Repo/Org URL"
                 onChange={handleTextInputChange}
             />
             <input placeholder="Date Y/M" type="month" name="x" id="" onChange={handleMonthInputChange} />
 
-            <Button disabled={disabled}>
-                <h4>Calculate</h4>
+            <Button style={{ background: "#ededed" }} disabled={disabled}>
+                <h4 style={!disabled ? { color: "#000" } : {}}>Calculate</h4>
             </Button>
         </form>
     );
