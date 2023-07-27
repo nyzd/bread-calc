@@ -16,7 +16,7 @@ export function ScoresFallback() {
     )
 }
 
-export default async function Scores({ reponame }: { reponame: any[] }) {
+export default async function Scores({ reponame }: { reponame: any[] }){
     let score = new Map();
     const pulls: any[] = await get_all_pulls(reponame);
 
