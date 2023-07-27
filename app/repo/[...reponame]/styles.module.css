@@ -19,6 +19,19 @@
     flex-wrap: wrap;
 }
 
+
+.scoreItemLoading{
+    display: inline-block;
+    margin: 5px;
+    width: 18rem;
+    height: 40px;
+    justify-content: space-between;
+    display: flex;
+    background-color: #ffffff14;
+    border-radius: 6px;
+    padding: 3px;
+}
+
 .scoreItem {
     margin: 5px;
     width: 18rem;
@@ -30,6 +43,7 @@
     padding: 3px;
     border: 1px solid #333333;
 }
+
 
 .scoreItem img {
     border-radius: 100%;

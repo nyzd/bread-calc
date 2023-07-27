@@ -32,3 +32,8 @@ input:focus {
     display: inline-block;
 }
 
+@media only screen and (max-width: 638px) {
+    .mob {
+        width: 100% !important;
+    }
+}
