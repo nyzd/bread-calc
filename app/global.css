@@ -7,7 +7,10 @@
 }
 
 body {
+    position: fixed;
     background: #0a0c10;
+    height: 100%;
+    width: 100%;
 }
 
 input {
