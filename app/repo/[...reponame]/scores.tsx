@@ -2,6 +2,8 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 import { get_all_pulls } from "./api_functions";
 
+export const dynamic = 'force-dynamic';
+
 export function ScoresFallback() {
     const style = `${styles.scoreItemLoading} mob`;
     return (
@@ -39,7 +41,6 @@ export default async function Scores({ reponame }: { reponame: any[] }){
         name,
         value,
     })).sort((a, b) => b.value.count - a.value.count);
-
 
     return (
         <>
