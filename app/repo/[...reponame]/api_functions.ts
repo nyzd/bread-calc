@@ -21,7 +21,7 @@ async function get_repo_pulls(
 ) {
     const pathAsString = `${org_name}/${repo_name}`;
 
-    const response = await call(`/repos/${pathAsString}/pulls?state=closed`);
+    const response = await call(`/repos/${pathAsString}/pulls?state=closed`, {});
     const json: any[] = await response.json();
 
     if (month) {
