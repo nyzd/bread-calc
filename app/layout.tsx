@@ -26,7 +26,7 @@ export default async function Layout({ children }: { children: JSX.Element }) {
                         <h3>Bread Calculator</h3>
 
                         {github_status === 200 ? (
-                            <span title={`Connected to github api with delay ${delay}ms`} className="dot" style={{ background: "#27a127bf" }}></span>
+                            <span title={`Connected to github api with ${delay}ms delay!`} className="dot" style={{ background: "#27a127bf" }}></span>
                         ) : (
                             <span title="Cannot connect to the github api" className="dot" style={{ background: "#a71e1e" }}></span>
                         )}
