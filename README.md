@@ -1,2 +1,2 @@
 # Bread Calculator
-Counts the pull requests of the repo.
+Counts the pull requests of repos.
