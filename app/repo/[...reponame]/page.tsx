@@ -20,6 +20,7 @@ function OrgDetail({ org }: { org: any }) {
                 src={org.avatar_url}
                 width={40}
                 height={40}
+                className={styles.orgAvatar}
             />
             <h2>{org.login}</h2>
 

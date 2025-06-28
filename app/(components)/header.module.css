@@ -1,9 +1,21 @@
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #333333;
     padding: 15px;
     padding-right: 24px;
+}
+
+.header a {
+    text-decoration: none;
+    color: #dedede;
+    font-size: 1.1rem;
+    transition: ease-in-out 0.2s;
+}
+
+.header a:hover {
+    color: #ffffff;
 }
 
 .header h3:first-child{

@@ -2,6 +2,8 @@ import { call } from "./(githubApi)";
 import Header from "./(components)/header";
 
 import "./global.css";
+import Link from "next/link";
+import Footer from "./(components)/footer";
 
 async function github_api_status() {
     const begin = Date.now();
@@ -23,7 +25,7 @@ export default async function Layout({ children }: { children: JSX.Element }) {
                 </head>
                 <body>
                     <Header>
-                        <h3>Bread Calculator</h3>
+                        <Link href={"/"}>Bread Calculator</Link>
 
                         {github_status === 200 ? (
                             <span title={`Connected to github api with ${delay}ms delay!`} className="dot" style={{ background: "#27a127bf" }}></span>
@@ -32,6 +34,7 @@ export default async function Layout({ children }: { children: JSX.Element }) {
                         )}
                     </Header>
                     {children}
+                    <Footer />
                 </body>
             </html>
         </>
