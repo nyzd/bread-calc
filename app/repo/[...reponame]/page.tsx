@@ -7,9 +7,9 @@ import git from "../../assets/g.svg";
 import followers from "../../assets/followers.svg";
 
 interface PageProps {
-    params: {
+    params: Promise<{
         reponame: string[];
-    };
+    }>;
 }
 
 function OrgDetail({ org }: { org: any }) {
@@ -41,7 +41,8 @@ function OrgDetail({ org }: { org: any }) {
     )
 }
 
-export default async function Reponame({ params: { reponame } }: PageProps) {
+export default async function Reponame( { params }: PageProps) {
+    const { reponame } = await params;
     const org: any = reponame.length == 2 ? await get_org(reponame[0]) : null;
 
     return (
