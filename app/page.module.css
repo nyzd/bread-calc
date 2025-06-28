@@ -7,7 +7,6 @@
 }
 
 .page form {
-    font-size: 100px;
     display: flex;
     flex-direction: column;
 }
@@ -15,4 +14,19 @@
 .page form * {
     margin: 10px;
     color: #FFF;
+}
+
+.tmbtn {
+    text-align: center;
+    color: #b7b7b767;
+    opacity: 0.5;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.tmbtn:hover {
+    opacity: 1;
 }

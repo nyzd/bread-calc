@@ -3,6 +3,7 @@
 import Button from "./(components)/button";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useState } from "react";
+import styles from "./page.module.css";
 
 export default function Form() {
     const [disabled, setDisabled] = useState<boolean>(true);
@@ -28,6 +29,14 @@ export default function Form() {
     const handleMonthInputChange = (e: ChangeEvent<HTMLInputElement>) =>
         setMonth(e.target.value);
 
+    const setCurrentMonth = () => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        setMonth(`${year}-${month}`);
+        if (path !== "") setDisabled(false);
+    };
+
     return (
         <form onSubmit={handleFormSubmit}>
             <input
@@ -36,8 +45,15 @@ export default function Form() {
                 placeholder="Repo/Org URL"
                 onChange={handleTextInputChange}
             />
-            <input placeholder="Date Y/M" type="month" name="x" id="" onChange={handleMonthInputChange} />
-
+            <input
+                placeholder="Date Y/M"
+                type="month"
+                name="x"
+                id=""
+                onChange={handleMonthInputChange}
+                value={month}
+            />
+            <p className={styles.tmbtn} onClick={setCurrentMonth}>Current month</p>
             <Button style={{ background: "#ededed" }} disabled={disabled}>
                 <h4 style={!disabled ? { color: "#000" } : {}}>Calculate</h4>
             </Button>

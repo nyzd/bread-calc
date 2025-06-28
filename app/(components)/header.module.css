@@ -12,15 +12,10 @@
     color: #dedede;
     font-size: 1.1rem;
     transition: ease-in-out 0.2s;
+    /* make font bold */
+    font-weight: 600;
 }
 
 .header a:hover {
     color: #ffffff;
 }
-
-.header h3:first-child{
-    margin-right: auto;
-    opacity: 0.8;
-}
-
-
