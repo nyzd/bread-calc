@@ -17,16 +17,16 @@
 }
 
 .page form input  {
-    background-color: rgba(48, 48, 48, 0.5);
+    background-color: rgba(48, 48, 48, 0.3);
     border-radius: 40px;
-    border: none;
+    border: 1px solid #45454536;
     padding: 15px;
     transition: ease-in-out 0.2s;
 }
 .page form button {
-    background-color: rgba(48, 48, 48, 0.5);
+    background-color: rgba(48, 48, 48, 0.3);
     border-radius: 40px;
-    border: none;
+    border: 1px solid #45454536;
     transition: ease-in-out 0.2s;
 }
 
