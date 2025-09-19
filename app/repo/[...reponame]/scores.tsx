@@ -6,12 +6,12 @@ export function ScoresFallback() {
     const style = `${styles.scoreItemLoading} mob`;
     return (
         <>
-            <span className={style}></span>
-            <span className={style}></span>
-            <span className={style}></span>
-            <span className={style}></span>
-            <span className={style}></span>
-            <span className={style}></span>
+            <div className={style}></div>
+            <div className={style}></div>
+            <div className={style}></div>
+            <div className={style}></div>
+            <div className={style}></div>
+            <div className={style}></div>
         </>
     )
 }

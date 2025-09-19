@@ -16,6 +16,20 @@
     color: #FFF;
 }
 
+.page form input  {
+    background-color: rgba(48, 48, 48, 0.5);
+    border-radius: 40px;
+    border: none;
+    padding: 15px;
+    transition: ease-in-out 0.2s;
+}
+.page form button {
+    background-color: rgba(48, 48, 48, 0.5);
+    border-radius: 40px;
+    border: none;
+    transition: ease-in-out 0.2s;
+}
+
 .tmbtn {
     text-align: center;
     color: #b7b7b767;

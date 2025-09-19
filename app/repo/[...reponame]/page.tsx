@@ -18,11 +18,11 @@ function OrgDetail({ org }: { org: any }) {
             <Image
                 alt="Avatar"
                 src={org.avatar_url}
-                width={40}
-                height={40}
+                width={65}
+                height={65}
                 className={styles.orgAvatar}
             />
-            <h2>{org.login}</h2>
+            <h3>{org.login}</h3>
 
             <div className={styles.orgInfo}>
                 <div>
@@ -46,12 +46,14 @@ export default async function Reponame( { params }: PageProps) {
     const org: any = reponame.length == 2 ? await get_org(reponame[0]) : null;
 
     return (
-        <div>
-            {org ? <OrgDetail org={org} /> : ""}
-            <div className={styles.scoreboard}>
-                <Suspense fallback={<ScoresFallback />}>
-                    <Scores reponame={reponame} />
-                </Suspense>
+        <div className={styles.full_page}>
+            <div className={styles.content}>
+                {org ? <OrgDetail org={org} /> : ""}
+                <div className={styles.scoreboard}>
+                    <Suspense fallback={<ScoresFallback />}>
+                        <Scores reponame={reponame} />
+                    </Suspense>
+                </div>
             </div>
         </div>
     );
