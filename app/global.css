@@ -34,6 +34,17 @@ input:focus {
     display: inline-block;
 }
 
+.dotOuter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    padding: 10px;
+    background-color: rgba(48, 48, 48, 0.3);
+    border-radius: 40px;
+    outline: 1px solid #54545491;
+}
+
 @media only screen and (max-width: 638px) {
     .mob {
         width: 100% !important;

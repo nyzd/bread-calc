@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #33333378;
     padding: 15px;
     padding-right: 24px;
 }
@@ -10,10 +9,13 @@
 .header a {
     text-decoration: none;
     color: #dedede;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: ease-in-out 0.2s;
-    /* make font bold */
-    font-weight: 600;
+    padding: 10px;
+    width: auto;
+    background-color: rgba(48, 48, 48, 0.3);
+    border-radius: 40px;
+    outline: 1px solid #54545491;
 }
 
 .header a:hover {
