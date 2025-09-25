@@ -1,12 +1,11 @@
 .button {
-    border: none;
-    background: #0a0a0a;
-    padding: 5px;
+    padding: 10px;
     cursor: pointer;
-    border: 1px solid #333333;
-    border-radius: 6px;
-    transition: ease-in-out 0.2s;
     font-size: 14px;
+    background-color: rgba(48, 48, 48, 0.3);
+    border-radius: 40px;
+    border: 1px solid #45454536;
+    transition: ease-in-out 0.2s;
 }
 
 .button:active {

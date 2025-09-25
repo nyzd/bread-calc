@@ -4,6 +4,9 @@
     width: 100%;
     padding: 30px;
     direction: rtl;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .footer svg {
