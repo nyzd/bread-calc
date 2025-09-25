@@ -46,7 +46,7 @@ export default async function Layout({ children }: { children: JSX.Element }) {
                             </svg>
                         </Link>
                         {
-                            beta
+                            beta && process.env.NODE_ENV === 'production'
                                 ? (
                                     <Link target="_blank" href={"https://bread-calc-git-beta-mahdi-abedis-projects.vercel.app/"}>
                                         <Button disabled={false} style={{}}>
