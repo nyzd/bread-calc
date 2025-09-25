@@ -4,7 +4,7 @@ import Header from "./(components)/header";
 import "./global.css";
 import Link from "next/link";
 import Footer from "./(components)/footer";
-import { betaLink } from "./flags";
+import { betaLink } from "../flags";
 import Button from "./(components)/button";
 
 async function github_api_status() {
