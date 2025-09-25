@@ -21,12 +21,52 @@ async function get_repo_pulls(
   merged: boolean = true,
 ) {
   const pathAsString = `${org_name}/${repo_name}`;
+  let allPulls: any[] = [];
+  let page = 1;
+  const perPage = 100; // Maximum allowed by GitHub API
 
-  const response = await call(`/repos/${pathAsString}/pulls?state=closed`, {});
-  const json: any[] = await response.json();
+  while (true) {
+    try {
+      const response = await call(`/repos/${pathAsString}/pulls?state=closed&per_page=${perPage}&page=${page}`, {});
+      
+      if (!response.ok) {
+        console.error(`Failed to fetch pulls for ${pathAsString}, page ${page}: ${response.status}`);
+        break;
+      }
+
+      const json: any[] = await response.json();
+      
+      if (json.length === 0) {
+        break; // No more pages
+      }
+
+      allPulls = allPulls.concat(json);
+      page++;
+
+      // If we have a month filter, we can stop early if we've gone past the target month
+      if (month) {
+        const path_date = month.split("-");
+        const targetYear = parseInt(path_date[0]);
+        const targetMonth = parseInt(path_date[1]);
+        
+        // Check if the last pull request is before our target month
+        const lastPull = json[json.length - 1];
+        const lastPullDate = new Date(lastPull.created_at);
+        const lastPullYear = lastPullDate.getFullYear();
+        const lastPullMonth = lastPullDate.getMonth() + 1;
+        
+        if (lastPullYear < targetYear || (lastPullYear === targetYear && lastPullMonth < targetMonth)) {
+          break; // We've gone past the target month
+        }
+      }
+    } catch (error) {
+      console.error(`Error fetching pulls for ${pathAsString}, page ${page}:`, error);
+      break;
+    }
+  }
 
   if (month) {
-    const pulls = json.filter((value) => {
+    const pulls = allPulls.filter((value) => {
       const created_at = value.created_at.split("-");
       const path_date = month.split("-");
 
@@ -43,7 +83,7 @@ async function get_repo_pulls(
 
     return pulls;
   }
-  return json;
+  return allPulls;
 }
 
 export async function get_all_pulls(repoPath: string[]) {
@@ -64,18 +104,23 @@ export async function get_all_pulls(repoPath: string[]) {
   if (repoName === undefined) {
     const org_repos = await get_org_repos_list(orgName);
 
-    // Now get the all repos pull requests
-    let pulls: any[] = [];
+    // Fetch pull requests from all repositories in parallel
+    const pullPromises = org_repos.map(async (repo: any) => {
+      try {
+        return await get_repo_pulls(orgName, repo.name, month);
+      } catch (error) {
+        console.error(`Error fetching pulls for ${orgName}/${repo.name}:`, error);
+        return []; // Return empty array on error to continue processing other repos
+      }
+    });
 
-    for await (const repo of org_repos) {
-      const repo_pulls = await get_repo_pulls(orgName, repo.name, month);
+    // Wait for all promises to resolve
+    const pullResults = await Promise.all(pullPromises);
+    
+    // Flatten all results into a single array
+    const allPulls = pullResults.flat();
 
-      repo_pulls.map((r) => {
-        pulls.push(r);
-      });
-    }
-
-    return pulls;
+    return allPulls;
   }
 
   const pulls = await get_repo_pulls(orgName, repoName, month);
