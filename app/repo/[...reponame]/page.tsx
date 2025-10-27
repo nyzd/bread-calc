@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
-import { get_org, } from "./api_functions";
+import { get_org } from "./api_functions";
 import Scores, { ScoresFallback } from "./scores";
 import { Suspense } from "react";
 import git from "../../assets/g.svg";
@@ -12,7 +12,8 @@ interface PageProps {
     }>;
 }
 
-function OrgDetail({ org }: { org: any }) {
+async function OrgDetail({ org }: { org: any }) {
+    "use cache";
     return (
         <div className={styles.orgDetail}>
             <Image
@@ -26,29 +27,34 @@ function OrgDetail({ org }: { org: any }) {
 
             <div className={styles.orgInfo}>
                 <div>
-                    <Image width={20}
-                        height={20} alt="repos" src={git} />
+                    <Image width={20} height={20} alt="repos" src={git} />
                     <p title="Repos">{org.public_repos}</p>
                 </div>
 
                 <div>
-                    <Image width={20}
-                        height={20} alt="followers" src={followers} />
+                    <Image
+                        width={20}
+                        height={20}
+                        alt="followers"
+                        src={followers}
+                    />
                     <p title="followers">{org.followers}</p>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default async function Reponame( { params }: PageProps) {
+async function Reponame({ params }: PageProps) {
     const { reponame } = await params;
     const org: any = reponame.length == 2 ? await get_org(reponame[0]) : null;
 
     return (
         <div className={styles.full_page}>
             <div className={styles.content}>
-                {org ? <OrgDetail org={org} /> : ""}
+                <Suspense fallback="Loading Org details!">
+                    {org ? <OrgDetail org={org} /> : ""}
+                </Suspense>
                 <div className={styles.scoreboard}>
                     <Suspense fallback={<ScoresFallback />}>
                         <Scores reponame={reponame} />
@@ -56,5 +62,13 @@ export default async function Reponame( { params }: PageProps) {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default async function Page({ params }: PageProps) {
+    return (
+        <Suspense>
+            <Reponame params={params} />
+        </Suspense>
     );
 }
