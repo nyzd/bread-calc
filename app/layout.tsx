@@ -4,8 +4,7 @@ import Header from "./(components)/header";
 import "./global.css";
 import Link from "next/link";
 import Footer from "./(components)/footer";
-import { betaLink } from "./flags";
-import Button from "./(components)/button";
+import { JSX, ReactNode } from "react";
 
 async function GitHubApiStatus() {
     "use cache";
@@ -32,7 +31,7 @@ async function GitHubApiStatus() {
     );
 }
 
-export default async function Layout({ children }: { children: JSX.Element }) {
+export default async function Layout({ children }: { children: ReactNode }) {
     return (
         <>
             <html lang="en">

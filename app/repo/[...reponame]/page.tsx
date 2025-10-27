@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 import { get_org } from "./api_functions";
-import Scores, { ScoresFallback } from "./scores";
+import Scores, { OrgFallback, ScoresFallback } from "./scores";
 import { Suspense } from "react";
 import git from "../../assets/g.svg";
 import followers from "../../assets/followers.svg";
@@ -52,7 +52,7 @@ async function Reponame({ params }: PageProps) {
     return (
         <div className={styles.full_page}>
             <div className={styles.content}>
-                <Suspense fallback="Loading Org details!">
+                <Suspense fallback={<OrgFallback />}>
                     {org ? <OrgDetail org={org} /> : ""}
                 </Suspense>
                 <div className={styles.scoreboard}>
