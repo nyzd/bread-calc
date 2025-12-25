@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./button.module.css";
+import { JSX } from "react";
 
 export default function Button({
     children,
